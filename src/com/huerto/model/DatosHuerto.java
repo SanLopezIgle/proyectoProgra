@@ -5,6 +5,8 @@ import java.sql.Connection;
 public class DatosHuerto {
     private Integer idHuerto;
     private Integer planta_id;
+
+    private String especie;
     public DatosHuerto(){}
 
     public DatosHuerto(Integer idHuerto, Integer planta_id){
@@ -26,5 +28,13 @@ public class DatosHuerto {
 
     public void setPlanta_id(Integer planta_id) {
         this.planta_id = planta_id;
+    }
+
+    public String getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
 }
