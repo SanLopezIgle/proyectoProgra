@@ -4,6 +4,14 @@
  */
 package com.huerto.view;
 
+import com.huerto.controller.HuertoController;
+import com.huerto.model.Cliente;
+import com.huerto.model.Consultas;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author PC
@@ -15,6 +23,45 @@ public class HuertoIU extends javax.swing.JFrame {
      */
     public HuertoIU() {
         initComponents();
+
+        bRegistrarCliente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Cliente cliente = new Cliente();
+                Consultas consulta = new Consultas();
+
+                if (e.getSource() == bRegistrarCliente) {
+                    try {
+                        cliente.setDni(txtDni.getText());
+                        cliente.setNombre(txtNombre.getText());
+
+                        if (consulta.insertarCliente(cliente)) {
+                            JOptionPane.showMessageDialog(null, "Guardado");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "No se pudo guardar");
+                        }
+                    } catch (Exception exception) {
+                        exception.getMessage();
+                    }
+                }
+            }
+        });
+
+        bOpcionHuertoPers.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                HuertoController.abrirPersonalizado();
+            }
+        });
+
+        bOpcionHuertoCat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                HuertoCatalogoIU catalogoIU = new HuertoCatalogoIU();
+                catalogoIU.cargarTabla();
+                catalogoIU.setVisible(true);
+            }
+        });
     }
 
     /**
