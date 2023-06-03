@@ -45,7 +45,10 @@ public class Consultas {
         Connection conexion = databaseManager.getConnection();
         ArrayList<DatosHuerto> listaHuertos = new ArrayList<>();
         try{
-            String consulta = "select * from tener";
+            String consulta = "SELECT huerto.idHuerto, planta.especie\n" +
+                    "FROM huerto\n" +
+                    "JOIN tener ON huerto.idHuerto = tener.idHuerto\n" +
+                    "JOIN planta ON tener.idPlanta = planta.idPlanta;";
             PreparedStatement st = conexion.prepareStatement(consulta);
             resultSet = st.executeQuery();
             while(resultSet.next()){
