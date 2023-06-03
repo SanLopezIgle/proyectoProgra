@@ -4,6 +4,10 @@
  */
 package com.huerto.view;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author PC
@@ -14,7 +18,29 @@ public class HuertoPersonalizadoIU extends javax.swing.JFrame {
      * Creates new form HuertoPersonalizadoIU
      */
     public HuertoPersonalizadoIU() {
+
         initComponents();
+
+        bAtrasHuertoPers.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
+        bComprarHuertoPers.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,"La compra se ha realizado con éxito");
+            }
+        });
+
+        bSalirHuertoPers.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
     }
 
     /**
