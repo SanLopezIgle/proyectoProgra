@@ -4,6 +4,15 @@
  */
 package com.huerto.view;
 
+import com.huerto.model.Consultas;
+import com.huerto.model.DatosHuerto;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 /**
  *
  * @author PC
@@ -14,7 +23,30 @@ public class HuertoCatalogoIU extends javax.swing.JFrame {
      * Creates new form HuertoCatalogoIU
      */
     public HuertoCatalogoIU() {
+
         initComponents();
+
+        bAtrasHuertoCat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
+
+        bComprarHuertoCat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,"La compra se ha realizado con éxito");
+            }
+        });
+
+        bSalirHuertoCat.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
     }
 
     /**
@@ -165,6 +197,22 @@ public class HuertoCatalogoIU extends javax.swing.JFrame {
                 new HuertoCatalogoIU().setVisible(true);
             }
         });
+    }
+
+    /**
+     * Método para cargar la tabla de la ventana HuertoCatalogoIU
+     */
+    public void cargarTabla() {
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        Consultas consulta = new Consultas();
+        ArrayList<DatosHuerto> listaHuertos = consulta.listaHuertos();
+        modelo.setRowCount(0);
+        for (DatosHuerto elemento : listaHuertos) {
+            Object datos[] = new Object[2];
+            datos[0] = elemento.getPlanta_id();
+            datos[1] = elemento.getIdHuerto();
+            modelo.addRow(datos);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
