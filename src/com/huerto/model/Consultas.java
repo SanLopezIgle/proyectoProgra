@@ -53,8 +53,8 @@ public class Consultas {
             resultSet = st.executeQuery();
             while(resultSet.next()){
                 DatosHuerto datos = new DatosHuerto();
-                datos.setPlanta_id(resultSet.getInt("idPlanta"));
                 datos.setIdHuerto(resultSet.getInt("idHuerto"));
+                datos.setEspecie(resultSet.getString("especie"));
                 listaHuertos.add(datos);
             }
         }catch (SQLException e){

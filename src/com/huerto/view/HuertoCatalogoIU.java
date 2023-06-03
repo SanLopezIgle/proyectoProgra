@@ -209,7 +209,7 @@ public class HuertoCatalogoIU extends javax.swing.JFrame {
         modelo.setRowCount(0);
         for (DatosHuerto elemento : listaHuertos) {
             Object datos[] = new Object[2];
-            datos[0] = elemento.getPlanta_id();
+            datos[0] = elemento.getEspecie();
             datos[1] = elemento.getIdHuerto();
             modelo.addRow(datos);
         }
