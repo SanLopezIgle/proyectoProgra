@@ -5,7 +5,6 @@ import java.sql.Connection;
 public class DatosHuerto {
     private Integer idHuerto;
     private Integer planta_id;
-
     public DatosHuerto(){}
 
     public DatosHuerto(Integer idHuerto, Integer planta_id){
