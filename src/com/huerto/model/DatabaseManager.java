@@ -10,7 +10,7 @@ public class DatabaseManager {
     private static DatabaseManager instance;
     Connection conexion;
 
-    private static final String url = "file:///C://Users//Sandra//IdeaProjects//proyectoProgra//basededatos//basededatos.db";
+    private static final String url = "basededatos/basededatos.db";
 
     /**
      * Constructor, crea la conexion con la BD
