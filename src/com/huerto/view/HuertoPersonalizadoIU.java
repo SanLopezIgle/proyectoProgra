@@ -4,6 +4,8 @@
  */
 package com.huerto.view;
 
+import com.Lucia.datos.PedirDatos;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,7 +33,7 @@ public class HuertoPersonalizadoIU extends javax.swing.JFrame {
         bComprarHuertoPers.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,"La compra se ha realizado con éxito");
+                PedirDatos.mostrarCompra();
             }
         });
 

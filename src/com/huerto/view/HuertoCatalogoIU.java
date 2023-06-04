@@ -4,6 +4,7 @@
  */
 package com.huerto.view;
 
+import com.Lucia.datos.PedirDatos;
 import com.huerto.model.Consultas;
 import com.huerto.model.DatosHuerto;
 
@@ -37,7 +38,7 @@ public class HuertoCatalogoIU extends javax.swing.JFrame {
         bComprarHuertoCat.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,"La compra se ha realizado con éxito");
+                PedirDatos.mostrarCompra();
             }
         });
 
