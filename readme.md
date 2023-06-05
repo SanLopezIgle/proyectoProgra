@@ -12,7 +12,6 @@ consultas para mostrar resultados específicos.
 ## DIAGRAMA DE CLASES
 
 ```mermaid
-
 classDiagram
 
 class Model {
@@ -118,7 +117,6 @@ View <|-- Controller
 View o-- HuertoIU
 View o-- HuertoCatalogoIU
 View o-- HuertoPersonalizadoIU
-
 ```
 
 ## DIAGRAMA DE SECUENCIA
@@ -134,8 +132,28 @@ sequenceDiagram
     participant Controller
     participant Model
     
-    User ->> View: Quiero registrarme como cliente
-    View ->> Controller: Registra al cliente
-    Controller->> Model: Ejecuta el registro del cliente
-    
+    User ->> View: Registra al cliente
+    activate View
+    View ->> Controller: El cliente se quiere registrar
+    activate Controller
+    Controller->> Model: ¿Puedes registrar al cliente?
+    activate Model
+    Model-->>Controller: Ya está registrado
+    deactivate Model
+    Controller-->>View: Cliente registrado!
+    deactivate Controller
+    View-->>User:Listo! Tu cliente fue registrado
+
+    User->>View: Quiero comprar un huerto del catálogo
+    activate View
+    View-->>Controller: El cliente quiere comprar un huerto del catálogo
+    activate Controller
+    Controller->>Model: Puedes venderle un huerto del catálogo?
+    activate Model
+    Model-->>Controller: Aquí tienes el huerto
+    deactivate Model
+    Controller-->>View: Huerto comprado!
+    deactivate Controller
+    View-->>User: Listo, tu huerto ha sido comprado!
+    deactivate View
 ```
