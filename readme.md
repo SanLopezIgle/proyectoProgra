@@ -14,9 +14,6 @@ consultas para mostrar resultados específicos.
 ```mermaid
 classDiagram
 
-class Model {
-}
-
 class Cliente{
 -dni: String
 -nombre: String
@@ -25,6 +22,7 @@ class Cliente{
 +getDni():String
 +setDni(String):void
 }
+
 
 class Consultas{
 -databaseManager:DatabaseManager
@@ -93,9 +91,6 @@ class HuertoPersonalizadoIU{
 initComponents()
 }
 
-class Controller{
-}
-
 class HuertoController{
  +main()
  +abrirCatalogo()
@@ -106,7 +101,7 @@ Controller o-- HuertoController
 
 Model o-- Cliente
 Model o-- Huerto
-Model o-- datosHuerto
+Model o-- DatosHuerto
 Model o-- Planta
 Model o-- Consultas
 Model o-- DatabaseManager
@@ -118,6 +113,8 @@ View o-- HuertoIU
 View o-- HuertoCatalogoIU
 View o-- HuertoPersonalizadoIU
 ```
+
+
 
 ## DIAGRAMA DE SECUENCIA
 El diagrama de secuencia de este proyecto, es una representación visual de las interacciones y 
