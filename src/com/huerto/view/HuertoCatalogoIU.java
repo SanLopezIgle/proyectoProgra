@@ -26,6 +26,7 @@ public class HuertoCatalogoIU extends javax.swing.JFrame {
     public HuertoCatalogoIU() {
 
         initComponents();
+        Consultas consultas= new Consultas();
 
         bAtrasHuertoCat.addActionListener(new ActionListener() {
             @Override
@@ -45,6 +46,7 @@ public class HuertoCatalogoIU extends javax.swing.JFrame {
         bSalirHuertoCat.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                consultas.cerrarConexion();
                 System.exit(0);
             }
         });
