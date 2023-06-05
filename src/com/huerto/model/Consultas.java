@@ -31,8 +31,6 @@ public class Consultas {
         }catch (SQLException e){
             System.err.println(e.getMessage());
             return false;
-        }finally {
-            cerrarConexion();
         }
     }
 
@@ -59,8 +57,6 @@ public class Consultas {
             }
         }catch (SQLException e){
             e.getMessage();
-        }finally {
-            cerrarConexion();
         }
         return listaHuertos;
     }

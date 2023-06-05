@@ -5,6 +5,7 @@
 package com.huerto.view;
 
 import com.Lucia.datos.PedirDatos;
+import com.huerto.model.Consultas;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -22,6 +23,7 @@ public class HuertoPersonalizadoIU extends javax.swing.JFrame {
     public HuertoPersonalizadoIU() {
 
         initComponents();
+        Consultas consultas= new Consultas();
 
         bAtrasHuertoPers.addActionListener(new ActionListener() {
             @Override
@@ -40,6 +42,7 @@ public class HuertoPersonalizadoIU extends javax.swing.JFrame {
         bSalirHuertoPers.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                consultas.cerrarConexion();
                 System.exit(0);
             }
         });
